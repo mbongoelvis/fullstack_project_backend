@@ -24,9 +24,10 @@ export const createStudent = async (req, res) => {
       username,
       matricule,
       email,
+      isStudent: true,
       password: hashedPassword,
     }).save();
-    return res.status(201).json({ data: newStudent });
+    return res.status(201).json(newStudent);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
